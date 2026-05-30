@@ -1,0 +1,8 @@
+{
+  "name": "KiPrism Pro",
+  "description": "Professional automated data analyst and cleansing pipeline with AI-generated insights, data profiling, auto EDA, and natural language query capability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
