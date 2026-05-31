@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import app from "./app";
+import app from "./api/server";
 
 async function startLocalServer() {
   if (process.env.NODE_ENV !== "production") {
