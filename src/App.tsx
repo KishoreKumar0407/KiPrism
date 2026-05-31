@@ -203,6 +203,17 @@ function KishoreAvatarSVG({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
+const getApiUrl = (endpoint: string) => {
+  let basePath = window.location.pathname;
+  if (basePath.endsWith(".html")) {
+    basePath = basePath.substring(0, basePath.lastIndexOf("/"));
+  }
+  if (basePath.endsWith("/")) {
+    basePath = basePath.slice(0, -1);
+  }
+  return `${basePath}${endpoint}`;
+};
+
 export default function App() {
   const [isPending, startTransition] = useTransition();
 
@@ -567,7 +578,7 @@ All clean variables are structured and ready in your workspace! Check the cleani
     });
 
     try {
-      const response = await fetch("/api/generate-insights", {
+      const response = await fetch(getApiUrl("/api/generate-insights"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -648,7 +659,7 @@ All clean variables are structured and ready in your workspace! Check the cleani
     });
 
     try {
-      const response = await fetch("/api/query-dataset", {
+      const response = await fetch(getApiUrl("/api/query-dataset"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
