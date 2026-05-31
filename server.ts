@@ -29,7 +29,7 @@ async function startServer() {
   }
 
   // API Route: Insights
-  app.post("/api/generate-insights", async (req, res) => {
+  app.post(["/api/generate-insights", "*/api/generate-insights"], async (req, res) => {
     try {
       if (!ai) {
         return res.status(500).json({
@@ -79,7 +79,7 @@ Please write your response in beautiful Markdown. Structure it with professional
   });
 
   // API Route: Natural Language Query
-  app.post("/api/query-dataset", async (req, res) => {
+  app.post(["/api/query-dataset", "*/api/query-dataset"], async (req, res) => {
     try {
       if (!ai) {
         return res.status(500).json({
